@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Practica4.Models.CortosViewModel>
+@{
+    Layout = "_Layout";
+}
+@foreach (var categorias in Model)
+{
+    <div id="principalPeliculas">
+
+        <div id="pelis">
+
+            <h1>@categorias.NombreCategoria</h1>
+            @foreach (var x in categorias.Cortometraje)
+            {
+                <div>
+                    <a class="imgPelicula" href="Cortometraje/@x.Nombre.Replace(" ", "-")">
+                        <img src="~/images/portadas/@(x.Id)_pc.jpg" alt="@x.Nombre">
+                    </a>
+                    <div class="nombrePelicula">
+                        <p>@x.Nombre</p>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+}
